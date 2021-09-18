@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/jquery.js"></script>
+    <script src="./js/script.js"></script>
     <title>pizza-corner</title>
   </head>
   <body>
@@ -130,7 +132,7 @@
         </div>
       </div>
       <!-- end of images -->
-      <form action="" method="get">
+      <form id="order-form" action="" method="get">
         <h1 id="order">Order here.</h1>
         <div id="orders-all">
           <div id="flavor-values">
@@ -226,7 +228,7 @@
             />
             <label for="proscuitto">Proscuitto</label><br />
           </div>
-          <button type="submit">Add To<br>Orders</button>
+          <button type="submit" id ="submit">Add To<br>Orders</button>
         </div>
       </form>
       <p id="ordered-items"></p>
