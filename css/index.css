@@ -27,6 +27,7 @@ img {
     color: crimson;
     text-align: center;
     font-weight: bolder;
+    background-color: white;
 }
 #orders-all{
     display: flex;
