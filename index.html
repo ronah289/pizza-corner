@@ -130,6 +130,106 @@
         </div>
       </div>
       <!-- end of images -->
+      <form action="" method="get">
+        <h1 id="order">Order here.</h1>
+        <div id="orders-all">
+          <div id="flavor-values">
+            <h4>Flavor</h4>
+            <input
+              type="radio"
+              id="california"
+              name="flavors"
+              value="california"
+              checked
+            />
+              <label for="california">california</label>
+            <br>
+            <input
+              type="radio"
+              id="double-cheese"
+              name="flavors"
+              value="double-cheese"
+            />
+              <label for="double-cheese">double cheese</label>
+            <br>
+            <input type="radio" id="hawaiian" name="flavors" value="hawaiian" />
+              <label for="hawaiian">hawaiian</label>
+            <br>
+            <input
+              type="radio"
+              id="margherita"
+              name="flavors"
+              value="margherita"
+            />
+              <label for="margherita">margherita</label>
+            <br>
+            <input
+              type="radio"
+              id="pepperoni"
+              name="flavors"
+              value="pepperoni-f"
+            />
+              <label for="pepperoni">pepperoni</label>
+            <br>
+            <input type="radio" id="bbq" name="flavors" value="bbq" />
+              <label for="bbq">BBQ</label>
+          </div>
+          <div id="crust-values">
+            <h4>Crust Type</h4>
+            <input type="radio" id="crispy" name="crust" value="crispy" checked />
+              <label for="crispy">Crispy</label>
+            <br>
+            <input
+              type="radio"
+              id="gluten-free"
+              name="crust"
+              value="gluten-free"
+            />
+              <label for="gluten-free">Gluten-free</label>
+            <br>
+            <input type="radio" id="stuffed" name="crust" value="stuffed" />
+              <label for="stuffed">Stuffed</label>
+          </div>
+          <div id="pizza-size">
+            <h4>Pizza size</h4>
+            <input type="radio" id="small" name="pizza-size" value="small"  checked />
+              <label for="small">Small</label>
+            <br>
+            <input type="radio" id="medium" name="pizza-size" value="medium" />
+              <label for="medium">Medium</label>
+            <br>
+            <input type="radio" id="large" name="pizza-size" value="large" />
+              <label for="large">Large</label>
+          </div>
+          <div id="toppings-values">
+            <h4>Favorite Toppings</h4>
+            <input
+              type="checkbox"
+              id="garlic-butter"
+              name="garlic-butter"
+              value="Bike"
+              checked
+            />
+            <label for="garlic-butter"> Garlic Butter</label><br />
+            <input
+              type="checkbox"
+              id="pepperoni"
+              name="pepperoni"
+              value="Bike"
+            />
+            <label for="pepperoni"> Pepperoni</label><br />
+            <input
+              type="checkbox"
+              id="proscuitto"
+              name="proscuitto"
+              value="Bike"
+            />
+            <label for="proscuitto">Proscuitto</label><br />
+          </div>
+          <button type="submit">Add To<br>Orders</button>
+        </div>
+      </form>
+      <p id="ordered-items"></p>
     </div>
   </body>
 </html>
