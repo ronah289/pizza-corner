@@ -1,23 +1,25 @@
-body{
+body {
     background-color: powderblue;
 }
-img{
+
+img {
     height: 115px;
     width: 115px;
     display: inline;
+    padding: 0;
 }
-#size{
+
+#size-image {
     width: 250px;
 }
-.meal-name{
+
+.meal-name {
     display: inline;
 }
-.images-flavor{
+
+.images-flavor {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     border-style: groove;
-}
- .images-all{
-    display: inline;
 }
