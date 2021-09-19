@@ -145,7 +145,7 @@
               checked
             />
               <label for="california">california</label>
-            <br>
+            <br />
             <input
               type="radio"
               id="double-cheese"
@@ -153,10 +153,10 @@
               value="double-cheese"
             />
               <label for="double-cheese">double cheese</label>
-            <br>
+            <br />
             <input type="radio" id="hawaiian" name="flavors" value="hawaiian" />
               <label for="hawaiian">hawaiian</label>
-            <br>
+            <br />
             <input
               type="radio"
               id="margherita"
@@ -164,7 +164,7 @@
               value="margherita"
             />
               <label for="margherita">margherita</label>
-            <br>
+            <br />
             <input
               type="radio"
               id="pepperoni"
@@ -172,15 +172,21 @@
               value="pepperoni-f"
             />
               <label for="pepperoni">pepperoni</label>
-            <br>
+            <br />
             <input type="radio" id="bbq" name="flavors" value="bbq" />
               <label for="bbq">BBQ</label>
           </div>
           <div id="crust-values">
             <h4>Crust Type</h4>
-            <input type="radio" id="crispy" name="crust" value="crispy" checked />
+            <input
+              type="radio"
+              id="crispy"
+              name="crust"
+              value="crispy"
+              checked
+            />
               <label for="crispy">Crispy</label>
-            <br>
+            <br />
             <input
               type="radio"
               id="gluten-free"
@@ -188,18 +194,24 @@
               value="gluten-free"
             />
               <label for="gluten-free">Gluten-free</label>
-            <br>
+            <br />
             <input type="radio" id="stuffed" name="crust" value="stuffed" />
               <label for="stuffed">Stuffed</label>
           </div>
           <div id="pizza-size">
             <h4>Pizza size</h4>
-            <input type="radio" id="small" name="pizza-size" value="small"  checked />
+            <input
+              type="radio"
+              id="small"
+              name="pizza-size"
+              value="small"
+              checked
+            />
               <label for="small">Small</label>
-            <br>
+            <br />
             <input type="radio" id="medium" name="pizza-size" value="medium" />
               <label for="medium">Medium</label>
-            <br>
+            <br />
             <input type="radio" id="large" name="pizza-size" value="large" />
               <label for="large">Large</label>
           </div>
@@ -228,10 +240,49 @@
             />
             <label for="proscuitto">Proscuitto</label><br />
           </div>
-          <button type="submit" id ="submit">Add To<br>Orders</button>
+          <button type="submit" id="submit">
+            Add<br />Selection<br />To<br />Orders
+          </button>
         </div>
       </form>
-      <p id="ordered-items"></p>
+      <div id="c-order">
+        <div id="shown1">
+          <h3>Your Drafted Orders.</h3>
+          <table class="table table-sm pizzatable">
+            <thead>
+              <tr>
+                <th scope="col">Flavor</th>
+                <th scope="col">Size</th>
+                <th scope="col">Crust</th>
+                <th scope="col">Topping</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody id="customer-order">
+              <tr>
+                <td id="p-flavor"></td>
+                <td id="p-size"></td>
+                <td id="p-crust"></td>
+                <td id="p-topping"></td>
+                <td id="totals"></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- cost - table -->
+          <p id="cost"></p>
+          <p id="d-fee"></p>
+        </div>
+        <button id="checkout">Checkout</button>
+        <div id="buttons">
+          <div id="on-checkout">
+            <button id="b1">Continue</button>
+            <button id="b2">Cancel</button>
+          </div>
+          <div id="place-order">
+            <button>Place Order</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -35,3 +35,6 @@ img {
     justify-content: space-evenly;
     border-style: groove;
 }
+#b1,#b2,#place-order,#d-fee,#cost{
+    display: none;
+}

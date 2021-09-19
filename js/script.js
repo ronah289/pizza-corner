@@ -8,13 +8,12 @@ function customerPrices(flavorName,crustName,sizeName,toppingString){
     this.crustName = crustName;
     this.sizeName = sizeName;
     this.toppingString = toppingString.toString(',');
-    var order = "<li><b>"+flavorName+"</b>"+crustName+"<i>"+sizeName+"</i>"+toppingString+"</li>";
-    alert(order);
 }
 
 $(document).ready(function(){
-$("form#order-form").submit(function(event){
+$("button#submit").click(function(event){
     //flavor
+    event.preventDefault();
     var selectedFlavor = document.getElementsByName("flavors");
     for(i=0;i<selectedFlavor.length;i++){
         if(selectedFlavor[i].checked){
@@ -62,13 +61,31 @@ for(i=0;i<toppingIndex.length;i++){
     toppingTotal += toppingIndex[i];
 }
 // alert(toppingTotal);
+customerPrices.prototype.order ="<li><b>"+flavorName+"</b>"+crustName+"<i>"+sizeName+"</i>"+toppingString+"</li>";
+customerPrices.prototype.rowCost = crustPrice[crustIndex]+sizePrice[sizeIndex]+toppingTotal;
 var firstCustomer = new customerPrices(flavorName,crustName,sizeName,toppingString);
-var totalCost = crustPrice[crustIndex]+sizePrice[sizeIndex]+toppingTotal;
-alert(totalCost);
+
+$("#customer-order").append('<tr><td id="p-flavor">' + firstCustomer.flavorName + '</td><td id="p-size">' + firstCustomer.sizeName + '</td><td id="p-crust">' + firstCustomer.crustName + '</td><td id="p-topping">' + firstCustomer.toppingString + '</td><td id="totals">' + firstCustomer.rowCost + '</td></tr>');
+
+
+// $("#cost").append('<h1>Bill is '+totalPrice+'</h1>')
+// $("#d-fee").append('<h3>Delivery fee is ksh. 300</h3>');
+
+// var rowCost = crustPrice[crustIndex]+sizePrice[sizeIndex]+toppingTotal;
+// alert(firstCustomer.rowCost+"..."+firstCustomer.order);
 
     // alert(toppingNames.toString());
 
 //    var customer = new  customerPrices(crustIndex,sizeIndex,newTopping);
 //    alert(customer);
+$("button#checkout").click(function(){
+    $("#cost").append('<h1>Bill is value:::</h1>')
+    $("shown1").hide();
+    $("button#checkout").hide();
+    $("#b1").show();
+    $("#b2").show();
+    $("#cost").show();
+    $("#d-fee").show();
+});
 });
 });
