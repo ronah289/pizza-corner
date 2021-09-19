@@ -3,12 +3,13 @@
 var crustPrice = new Array(250,200,350);
 var sizePrice = new Array(350,500,700);
 var toppingsPrice = new Array(140,180,220);
-// function customerPrices(crustIndex,sizeIndex){
-//     this.crustIndex = crustPrice[crustIndex];
-//     this.sizeIndex = sizePrice[sizeIndex];
-//     let sum = crustIndex+sizeIndex;
-//     alert("sum");
-// }
+function customerPrices(crustName,sizeName,toppingString){
+    this.crustName = crustName;
+    this.sizeName = sizeName;
+    this.toppingString = toppingString.toString(',');
+    var order = "<li>"+crustName+"<i>"+sizeName+"</i>"+toppingString+"</li>";
+    alert(order);
+}
 
 $(document).ready(function(){
 $("form#order-form").submit(function(event){
@@ -17,7 +18,7 @@ $("form#order-form").submit(function(event){
     for(i=0;i<selectedFlavor.length;i++){
         if(selectedFlavor[i].checked){
             // alert(selectedFlavor[i].value);
-            let flavorName = selectedFlavor[i].value;
+            var flavorName = selectedFlavor[i].value;
             // alert(flavorName);
         }
     }
@@ -25,8 +26,8 @@ $("form#order-form").submit(function(event){
     var selectedCrust = document.getElementsByName("crust");
     for(i=0;i<selectedCrust.length;i++){
         if(selectedCrust[i].checked){
-            let crustIndex = i;
-            let crustName = selectedCrust[i].value;
+            var crustIndex = i;
+            var crustName = selectedCrust[i].value;
             //  alert(crustIndex +"..."+crustName);
             // return(crustIndex,crustName);
         }
@@ -35,8 +36,8 @@ $("form#order-form").submit(function(event){
     var selectedSize = document.getElementsByName("pizza-size");
     for(i=0;i<selectedSize.length;i++){
         if(selectedSize[i].checked){
-            let sizeIndex = i;
-            let sizeName = selectedSize[i].value;
+            var sizeIndex = i;
+            var sizeName = selectedSize[i].value;
             // alert(sizeIndex+"..."+sizeName);
             // return(sizeIndex,sizeName);
         }
@@ -48,11 +49,20 @@ $("form#order-form").submit(function(event){
     // Alert your values
     // alert("The index is " + i + " and the value is " + $(this).val());
     // Push the value and index onto the array
-    toppingIndex.push(i);
+    toppingIndex.push(toppingsPrice[i]);
     toppingString.push(($(this).val()));
     // topping.push(new topping(i,($(this).val())));
 });
-alert(toppingIndex.length+"...\t"+toppingString.toString(','));
+// alert(toppingIndex.length+"...\t"+toppingString.toString(','));
+// sum of toppings
+var toppingTotal = 0;
+// alert(toppingIndex);
+for(i=0;i<toppingIndex.length;i++){
+    toppingTotal += toppingIndex[i];
+}
+// alert(toppingTotal);
+var firstCustomer = new customerPrices(crustName,sizeName,toppingString);
+alert(firstCustomer.crustName);
 
     // alert(toppingNames.toString());
 
