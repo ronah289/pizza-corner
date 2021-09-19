@@ -3,11 +3,12 @@
 var crustPrice = new Array(250,200,350);
 var sizePrice = new Array(350,500,700);
 var toppingsPrice = new Array(140,180,220);
-function customerPrices(crustName,sizeName,toppingString){
+function customerPrices(flavorName,crustName,sizeName,toppingString){
+    this.flavorName = flavorName;
     this.crustName = crustName;
     this.sizeName = sizeName;
     this.toppingString = toppingString.toString(',');
-    var order = "<li>"+crustName+"<i>"+sizeName+"</i>"+toppingString+"</li>";
+    var order = "<li><b>"+flavorName+"</b>"+crustName+"<i>"+sizeName+"</i>"+toppingString+"</li>";
     alert(order);
 }
 
@@ -61,8 +62,9 @@ for(i=0;i<toppingIndex.length;i++){
     toppingTotal += toppingIndex[i];
 }
 // alert(toppingTotal);
-var firstCustomer = new customerPrices(crustName,sizeName,toppingString);
-alert(firstCustomer.crustName);
+var firstCustomer = new customerPrices(flavorName,crustName,sizeName,toppingString);
+var totalCost = crustPrice[crustIndex]+sizePrice[sizeIndex]+toppingTotal;
+alert(totalCost);
 
     // alert(toppingNames.toString());
 
