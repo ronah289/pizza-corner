@@ -57,6 +57,7 @@ customerPrices.prototype.rowCost = crustPrice[crustIndex]+sizePrice[sizeIndex]+t
 var firstCustomer = new customerPrices(flavorName,crustName,sizeName,toppingString);
 $("#customer-order").append('<tr><td id="p-flavor">' + firstCustomer.flavorName + '</td><td id="p-size">' + firstCustomer.sizeName + '</td><td id="p-crust">' + firstCustomer.crustName + '</td><td id="p-topping">' + firstCustomer.toppingString + '</td><td id="totals">' + firstCustomer.rowCost + '</td></tr>');
 total += crustPrice[crustIndex]+sizePrice[sizeIndex]+toppingTotal;
+});
 $("button#checkout").click(function(){
     event.preventDefault();
     let x = total;
@@ -68,11 +69,14 @@ $("button#checkout").click(function(){
     $("#b2").show();
     $("#cost").show();
     $("#d-fee").show();
-    $("#shown1").hide();
+    $("#order-list").html("Your Selection.");
+    $(".pizzatable").addClass("bg-success");
+    // $("#shown1").hide();
 });
 $("#b1").click(function(){
     $("#delivery-form").show();
     alert("delivery fee is ksh."+deliveryFee);
+    $(".pizzatable").hide();
     $("#cost").hide();
     $("#b1").hide();
     $("#b2").hide();
@@ -82,12 +86,13 @@ $("#p-order").click(function(){
     alert(customerName +": your order will be delivered shortly.")
 });
 $("#b2").click(function(){
+    $("#order-list").html("<p><i>Your Selection Will Appear Here</i></p>")
     $("#cost").hide();
     $("#output").html("<h1><del>Order Cancelled</del></h1>")
+    $(".pizzatable").hide();
     $("#b1").hide();
     $("#b2").hide();
     $("#order-form").show();
     $("#shown1").show();
-});
 });
 });
