@@ -70,7 +70,7 @@ $("button#checkout").click(function(){
     $("#cost").show();
     $("#d-fee").show();
     $("#order-list").html("Your Selection.");
-    $(".pizzatable").addClass("bg-success");
+    $(".pizzatable").addClass("bg-light");
     // $("#shown1").hide();
 });
 $("#b1").click(function(){
@@ -88,7 +88,7 @@ $("#p-order").click(function(){
 $("#b2").click(function(){
     $("#order-list").html("<p><i>Your Selection Will Appear Here</i></p>")
     $("#cost").hide();
-    $("#output").html("<h1><del>Order Cancelled</del></h1>")
+    $("#output").html("<h1>Order <del>Cancelled</del></h1>")
     $(".pizzatable").hide();
     $("#b1").hide();
     $("#b2").hide();
