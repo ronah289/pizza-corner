@@ -1,5 +1,6 @@
 //initialize values
 //prices
+var total = 0;
 var crustPrice = new Array(250,200,350);
 var sizePrice = new Array(350,500,700);
 var toppingsPrice = new Array(140,180,220);
@@ -12,14 +13,13 @@ function customerPrices(flavorName,crustName,sizeName,toppingString){
 
 $(document).ready(function(){
 $("button#submit").click(function(event){
+    $("button#submit").text("Add Pizza");
     //flavor
     event.preventDefault();
     var selectedFlavor = document.getElementsByName("flavors");
     for(i=0;i<selectedFlavor.length;i++){
         if(selectedFlavor[i].checked){
-            // alert(selectedFlavor[i].value);
             var flavorName = selectedFlavor[i].value;
-            // alert(flavorName);
         }
     }
     //crust
@@ -28,8 +28,6 @@ $("button#submit").click(function(event){
         if(selectedCrust[i].checked){
             var crustIndex = i;
             var crustName = selectedCrust[i].value;
-            //  alert(crustIndex +"..."+crustName);
-            // return(crustIndex,crustName);
         }
     }
     //size
@@ -38,54 +36,56 @@ $("button#submit").click(function(event){
         if(selectedSize[i].checked){
             var sizeIndex = i;
             var sizeName = selectedSize[i].value;
-            // alert(sizeIndex+"..."+sizeName);
-            // return(sizeIndex,sizeName);
         }
     }
     //toppings
     var toppingString = new Array();
     var toppingIndex = new Array();
       $("input[name='offers']:checked").each(function (i) { 
-    // Alert your values
-    // alert("The index is " + i + " and the value is " + $(this).val());
-    // Push the value and index onto the array
     toppingIndex.push(toppingsPrice[i]);
     toppingString.push(($(this).val()));
-    // topping.push(new topping(i,($(this).val())));
 });
 // alert(toppingIndex.length+"...\t"+toppingString.toString(','));
 // sum of toppings
 var toppingTotal = 0;
-// alert(toppingIndex);
 for(i=0;i<toppingIndex.length;i++){
     toppingTotal += toppingIndex[i];
 }
-// alert(toppingTotal);
 customerPrices.prototype.order ="<li><b>"+flavorName+"</b>"+crustName+"<i>"+sizeName+"</i>"+toppingString+"</li>";
 customerPrices.prototype.rowCost = crustPrice[crustIndex]+sizePrice[sizeIndex]+toppingTotal;
 var firstCustomer = new customerPrices(flavorName,crustName,sizeName,toppingString);
-
 $("#customer-order").append('<tr><td id="p-flavor">' + firstCustomer.flavorName + '</td><td id="p-size">' + firstCustomer.sizeName + '</td><td id="p-crust">' + firstCustomer.crustName + '</td><td id="p-topping">' + firstCustomer.toppingString + '</td><td id="totals">' + firstCustomer.rowCost + '</td></tr>');
-
-
-// $("#cost").append('<h1>Bill is '+totalPrice+'</h1>')
-// $("#d-fee").append('<h3>Delivery fee is ksh. 300</h3>');
-
-// var rowCost = crustPrice[crustIndex]+sizePrice[sizeIndex]+toppingTotal;
-// alert(firstCustomer.rowCost+"..."+firstCustomer.order);
-
-    // alert(toppingNames.toString());
-
-//    var customer = new  customerPrices(crustIndex,sizeIndex,newTopping);
-//    alert(customer);
+total += crustPrice[crustIndex]+sizePrice[sizeIndex]+toppingTotal;
 $("button#checkout").click(function(){
-    $("#cost").append('<h1>Bill is value:::</h1>')
-    $("shown1").hide();
+    event.preventDefault();
+    let x = total;
+    $("#cost").append('<h1>Bill value is ksh.'+(x+250)+'</h1>')
+    $("#order-form").hide();
+    $("#cost").show();
     $("button#checkout").hide();
     $("#b1").show();
     $("#b2").show();
     $("#cost").show();
     $("#d-fee").show();
+    $("#shown1").hide();
+});
+$("#b1").click(function(){
+    $("#delivery-form").show();
+    $("#cost").hide();
+    $("#b1").hide();
+    $("#b2").hide();
+});
+$("#p-order").click(function(){
+    var customerName = $("#username").val();
+    alert(customerName +": your order will be delivered shortly.")
+});
+$("#b2").click(function(){
+    $("#cost").hide();
+    $("#output").html("<h1><del>Order Cancelled</del></h1>")
+    $("#b1").hide();
+    $("#b2").hide();
+    $("#order-form").show();
+    $("#shown1").show();
 });
 });
-});
+})
