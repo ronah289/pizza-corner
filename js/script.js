@@ -1,6 +1,7 @@
 //initialize values
 //prices
 var total = 0;
+var deliveryFee = 300;
 var crustPrice = new Array(250,200,350);
 var sizePrice = new Array(350,500,700);
 var toppingsPrice = new Array(140,180,220);
@@ -59,7 +60,7 @@ total += crustPrice[crustIndex]+sizePrice[sizeIndex]+toppingTotal;
 $("button#checkout").click(function(){
     event.preventDefault();
     let x = total;
-    $("#cost").append('<h1>Bill value is ksh.'+(x+250)+'</h1>')
+    $("#cost").append('<h1>Bill value is ksh.'+x+'</h1>')
     $("#order-form").hide();
     $("#cost").show();
     $("button#checkout").hide();
@@ -71,6 +72,7 @@ $("button#checkout").click(function(){
 });
 $("#b1").click(function(){
     $("#delivery-form").show();
+    alert("delivery fee is ksh."+deliveryFee);
     $("#cost").hide();
     $("#b1").hide();
     $("#b2").hide();
@@ -88,4 +90,4 @@ $("#b2").click(function(){
     $("#shown1").show();
 });
 });
-})
+});
