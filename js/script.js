@@ -82,8 +82,9 @@ $("#b1").click(function(){
     $("#b2").hide();
 });
 $("#p-order").click(function(){
-    var customerName = $("#username").val();
-    alert(customerName +": your order will be delivered shortly.")
+    let customerName = $("#username").val();
+    let location = $("#location").val();
+    alert(customerName.toUpperCase() +": your order will be delivered to "+location.toUpperCase()+" shortly.")
 });
 $("#b2").click(function(){
     $("#order-list").html("<p><i>Your Selection Will Appear Here</i></p>")
